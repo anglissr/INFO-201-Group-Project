@@ -4,9 +4,10 @@
 
 
 body {
-  background-color: #F7F7F7;
+  background-color: #F7F7F5;
   font-family: 'Roboto', sans-serif;
 }
+
 
 a:link {
   color: white;
@@ -42,6 +43,10 @@ a:active {
   background-color: white;
 }
 
+.row {
+  padding-left: 70px;
+  padding-right: 70px;
+}
 .navbar-default .navbar-brand {
   color: black;
   font-family: 'Roboto', sans-serif;
@@ -74,6 +79,7 @@ https://www.w3schools.com/howto/howto_css_team.asp */
 /* Add some shadows to create a card effect */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
 }
 
 /* Some left and right padding inside the container */
