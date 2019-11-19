@@ -22,7 +22,15 @@ shinyUI(fluidPage(
                
     ),
     
-    tabPanel("Carbon Emmissions in the US", 
+    tabPanel("Carbon Emmissions in the US",
+             
+      tags$header(
+        tags$div(
+          id = "header",
+          h1("Carbon Emmissions in the US")
+        )
+      ),
+             
       plotOutput(outputId = "plot")         
     ),
     
