@@ -21,6 +21,23 @@ shinyUI(fluidPage(
     tabPanel("Home", 
                
     ),
+    
+    tabPanel("Carbon Emmissions in the US", 
+             
+    ),
+    
+    tabPanel("Viability", 
+             
+    ),
+    
+    tabPanel("Benefits", 
+             
+    ),
+    
+    tabPanel("Improvments", 
+             
+    ),
+    
 
     
     tabPanel("Team",
