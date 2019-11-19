@@ -23,7 +23,7 @@ shinyUI(fluidPage(
     ),
     
     tabPanel("Carbon Emmissions in the US", 
-             
+      plotOutput(outputId = "plot")         
     ),
     
     tabPanel("Viability", 
