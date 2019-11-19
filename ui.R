@@ -34,7 +34,7 @@ shinyUI(fluidPage(
              
     ),
     
-    tabPanel("Improvments", 
+    tabPanel("Better stuff", 
              
     ),
     
