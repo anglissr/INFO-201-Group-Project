@@ -64,7 +64,7 @@ shinyUI(fluidPage(
           class = "column",
           tags$div(
             class = "card",
-            tags$img(src = "pic.jpg", alt = "", style = "width:100%"),
+            tags$img(src = "davis.jpg", alt = "", style = "width:100%"),
             tags$div(
               class = "container",
               tags$h3("Davis Kurniawan"),
@@ -78,7 +78,7 @@ shinyUI(fluidPage(
           class = "column",
           tags$div(
             class = "card",
-            tags$img(src = "pic.jpg", alt = "", style = "width:100%"),
+            tags$img(src = "jareese.jpg", alt = "", style = "width:100%"),
             tags$div(
               class = "container",
               tags$h3("Jareese Espinosa"),
@@ -104,7 +104,7 @@ shinyUI(fluidPage(
           class = "column",
           tags$div(
             class = "card",
-            tags$img(src = "pic.jpg", alt = "", style = "width:100%"),
+            tags$img(src = "spencer.jpg", alt = "", style = "width:100%"),
             tags$div(
               class = "container",
               tags$h3("Spencer Boat"),
