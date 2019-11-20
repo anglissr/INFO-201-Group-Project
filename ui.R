@@ -23,15 +23,22 @@ shinyUI(fluidPage(
     ),
     
     tabPanel("Carbon Emmissions in the US",
+             tags$header(
+               tags$div(
+                 id = "header",
+                 h1("Carbon")
+               )
+             ),
              
-      tags$header(
-        tags$div(
-          id = "header",
-          h1("Carbon Emmissions in the US")
-        )
-      ),
-             
-      plotOutput(outputId = "plot")         
+             sidebarLayout(
+               sidebarPanel(
+                 sliderInput(inputId = "year", "Year", 1800, 2014, 1900),
+               ),
+               
+               mainPanel(
+                 plotOutput(outputId = "plot")   
+               )
+             )
     ),
     
     tabPanel("Viability", 

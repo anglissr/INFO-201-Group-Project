@@ -1,9 +1,13 @@
 library(shiny)
 source("analysis.R")
+library("dplyr")
+library("ggplot2")
+
 
 shinyServer(function(input, output) {
-    output$plot <- renderPlot(total_emissions_year)
+  
+  output$plot <- renderPlot(
+    emission_plot(input$year)
+  )
     
-    output$plot2 <- renderPlot(sales_yearly)
-
 })
