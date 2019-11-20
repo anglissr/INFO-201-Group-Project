@@ -3,5 +3,7 @@ source("analysis.R")
 
 shinyServer(function(input, output) {
     output$plot <- renderPlot(total_emissions_year)
+    
+    output$plot2 <- renderPlot(sales_yearly)
 
 })
