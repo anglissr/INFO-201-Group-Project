@@ -7,7 +7,8 @@ shinyUI(fluidPage(
     tags$title("Code: Green"),
     tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.css"),
     tags$meta(charset = "utf-8"),
-    tags$meta(name = "viewport", content = "width=device-width, initial-scale=1, shrink-to-fit=no")
+    tags$meta(name = "viewport",
+              content = "width=device-width, initial-scale=1, shrink-to-fit=no")
   ),
 
   navbarPage(
@@ -16,12 +17,8 @@ shinyUI(fluidPage(
     header = TRUE,
     position = c("fixed-top"),
     title = "Electric Vehicles",
-
-    
-    tabPanel("Home", 
-               
+    tabPanel("Home",
     ),
-    
     tabPanel("Carbon Emissions in the US",
              tags$header(
                tags$div(
@@ -29,70 +26,61 @@ shinyUI(fluidPage(
                  h1("Carbon Emissions Over Time in the US")
                )
              ),
-             
       sidebarLayout(
         sidebarPanel(
-          sliderInput(inputId = "year", "Year", 1800, 2014, value = c(1900, 2000)),
-          selectInput(inputId = "type", "Fuel Type", "Type", choices = c('Total' = 'Total', 'Solid Fuel' = 'Solid.Fuel', 'Liquid Fuel' = 'Liquid.Fuel','Gas Fuel' = 'Gas.Fuel')
+          sliderInput(inputId = "year", "Year", 1800, 2014,
+                      value = c(1900, 2000)),
+          selectInput(inputId = "type", "Fuel Type", "Type",
+                      choices = c("Total" = "Total",
+                                  "Solid Fuel" = "Solid.Fuel",
+                                  "Liquid Fuel" = "Liquid.Fuel",
+                                  "Gas Fuel" = "Gas.Fuel")
           )
         ),
-               
         mainPanel(
-          plotOutput(outputId = "plot")   
+          plotOutput(outputId = "plot")
         )
       )
     ),
-    
-    tabPanel("Viability", 
+    tabPanel("Viability",
       sidebarLayout(
         sidebarPanel(
           tags$p("Text and interactive elements will go here")
         ),
-        
-        mainPanel(
-          tags$p("Graph will go here")
-        )
-      )    
-    ),
-    
-    tabPanel("Benefits", 
-      sidebarLayout(
-        sidebarPanel(
-          tags$p("Text and interactive elements will go here")
-        ),
-               
         mainPanel(
           tags$p("Graph will go here")
         )
       )
     ),
-    
-    tabPanel("Improvements", 
+    tabPanel("Benefits",
       sidebarLayout(
         sidebarPanel(
           tags$p("Text and interactive elements will go here")
         ),
-               
         mainPanel(
           tags$p("Graph will go here")
         )
-      )             
+      )
     ),
-    
-
-    
+    tabPanel("Improvements",
+      sidebarLayout(
+        sidebarPanel(
+          tags$p("Text and interactive elements will go here")
+        ),
+        mainPanel(
+          tags$p("Graph will go here")
+        )
+      )
+    ),
     tabPanel("Team",
-      
       tags$header(
         tags$div(
           id = "header",
           h1("The Team")
         )
       ),
-
       tags$div(
         class = "row",
-        
         tags$div(
           class = "column",
           tags$div(
@@ -102,11 +90,13 @@ shinyUI(fluidPage(
               class = "container",
               tags$h3("Davis Kurniawan"),
               tags$p("Major: [Text Here]"),
-              tags$p(tags$button(class = "button", tags$a(href = "https://github.com/davisk83", "Github")))
+              tags$p(tags$button(class = "button",
+                                 tags$a(href =
+                                        "https://github.com/davisk83",
+                                        "Github")))
             )
           )
         ),
-
         tags$div(
           class = "column",
           tags$div(
@@ -116,7 +106,10 @@ shinyUI(fluidPage(
               class = "container",
               tags$h3("Jareese Espinosa"),
               tags$p("Major: [Text Here]"),
-              tags$p(tags$button(class = "button", tags$a(href = "https://github.com/JareeseEspinosa", "Github")))
+              tags$p(tags$button(class = "button",
+                                 tags$a(href =
+                                        "https://github.com/JareeseEspinosa",
+                                        "Github")))
             )
           )
         ),
@@ -129,7 +122,10 @@ shinyUI(fluidPage(
               class = "container",
               tags$h3("Ryan Angliss"),
               tags$p("Major: [Text Here]"),
-              tags$p(tags$button(class = "button", tags$a(href = "https://github.com/anglissr", "Github")))
+              tags$p(tags$button(class = "button",
+                                 tags$a(href =
+                                        "https://github.com/anglissr",
+                                        "Github")))
             )
           )
         ),
@@ -142,11 +138,13 @@ shinyUI(fluidPage(
               class = "container",
               tags$h3("Spencer Boat"),
               tags$p("Major: [Text Here]"),
-              tags$p(tags$button(class = "button", tags$a(href = "https://github.com/Nee-er", "Github")))
+              tags$p(tags$button(class = "button",
+                                 tags$a(href =
+                                        "https://github.com/Nee-er",
+                                        "Github")))
             )
           )
         ),
-
         tags$div(
           class = "column",
           tags$div(
@@ -156,7 +154,10 @@ shinyUI(fluidPage(
               class = "container",
               tags$h3("Zhiyan Keriwn Jiao"),
               tags$p("Major: [Text Here]"),
-              tags$p(tags$button(class = "button", tags$a(href = "https://github.com/Zhiyuan-Jiao", "Github")))
+              tags$p(tags$button(class = "button",
+                                 tags$a(href =
+                                        "https://github.com/Zhiyuan-Jiao",
+                                        "Github")))
             )
           )
         )
