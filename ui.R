@@ -22,7 +22,6 @@ shinyUI(fluidPage(
                
     ),
     
-<<<<<<< HEAD
     tabPanel("Carbon Emissions in the US",
              tags$header(
                tags$div(
@@ -30,15 +29,6 @@ shinyUI(fluidPage(
                  h1("Carbon Emissions Over Time in the US")
                )
              ),
-=======
-    tabPanel("Carbon Emmissions in the US",
-      tags$header(
-        tags$div(
-          id = "header",
-            h1("Carbon Emmissions Over Time in the US")
-        )
-      ),
->>>>>>> 888e37db8eb5bb1321b44da772e8a0b5f0b5195e
              
       sidebarLayout(
         sidebarPanel(
