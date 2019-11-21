@@ -26,14 +26,14 @@ shinyUI(fluidPage(
              tags$header(
                tags$div(
                  id = "header",
-                 h1("Carbon")
+                 h1("Carbon Emmissions Over Time in the US")
                )
              ),
              
              sidebarLayout(
                sidebarPanel(
                  sliderInput(inputId = "year", "Year", 1800, 2014, value = c(1900, 2000)),
-                 selectInput(inputId = "type", "label", "Type", choices = c('Total' = 'Total', 'Solid Fuel' = 'Solid.Fuel', 'Liquid Fuel' = 'Liquid.Fuel','Gas Fuel' = 'Gas.Fuel')
+                 selectInput(inputId = "type", "Fuel Type", "Type", choices = c('Total' = 'Total', 'Solid Fuel' = 'Solid.Fuel', 'Liquid Fuel' = 'Liquid.Fuel','Gas Fuel' = 'Gas.Fuel')
                  )
                ),
                
