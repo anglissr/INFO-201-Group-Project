@@ -22,6 +22,7 @@ shinyUI(fluidPage(
                
     ),
     
+<<<<<<< HEAD
     tabPanel("Carbon Emissions in the US",
              tags$header(
                tags$div(
@@ -29,30 +30,63 @@ shinyUI(fluidPage(
                  h1("Carbon Emissions Over Time in the US")
                )
              ),
+=======
+    tabPanel("Carbon Emmissions in the US",
+      tags$header(
+        tags$div(
+          id = "header",
+            h1("Carbon Emmissions Over Time in the US")
+        )
+      ),
+>>>>>>> 888e37db8eb5bb1321b44da772e8a0b5f0b5195e
              
-             sidebarLayout(
-               sidebarPanel(
-                 sliderInput(inputId = "year", "Year", 1800, 2014, value = c(1900, 2000)),
-                 selectInput(inputId = "type", "Fuel Type", "Type", choices = c('Total' = 'Total', 'Solid Fuel' = 'Solid.Fuel', 'Liquid Fuel' = 'Liquid.Fuel','Gas Fuel' = 'Gas.Fuel')
-                 )
-               ),
+      sidebarLayout(
+        sidebarPanel(
+          sliderInput(inputId = "year", "Year", 1800, 2014, value = c(1900, 2000)),
+          selectInput(inputId = "type", "Fuel Type", "Type", choices = c('Total' = 'Total', 'Solid Fuel' = 'Solid.Fuel', 'Liquid Fuel' = 'Liquid.Fuel','Gas Fuel' = 'Gas.Fuel')
+          )
+        ),
                
-               mainPanel(
-                 plotOutput(outputId = "plot")   
-               )
-             )
+        mainPanel(
+          plotOutput(outputId = "plot")   
+        )
+      )
     ),
     
     tabPanel("Viability", 
-             
+      sidebarLayout(
+        sidebarPanel(
+          tags$p("Text and interactive elements will go here")
+        ),
+        
+        mainPanel(
+          tags$p("Graph will go here")
+        )
+      )    
     ),
     
     tabPanel("Benefits", 
-             
+      sidebarLayout(
+        sidebarPanel(
+          tags$p("Text and interactive elements will go here")
+        ),
+               
+        mainPanel(
+          tags$p("Graph will go here")
+        )
+      )
     ),
     
-    tabPanel("Better stuff", 
-             
+    tabPanel("Improvements", 
+      sidebarLayout(
+        sidebarPanel(
+          tags$p("Text and interactive elements will go here")
+        ),
+               
+        mainPanel(
+          tags$p("Graph will go here")
+        )
+      )             
     ),
     
 
