@@ -4,7 +4,7 @@ library(shiny)
 
 shinyUI(fluidPage(
   tags$head(
-    tags$title("testing"),
+    tags$title("Code: Green"),
     tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.css"),
     tags$meta(charset = "utf-8"),
     tags$meta(name = "viewport", content = "width=device-width, initial-scale=1, shrink-to-fit=no")
@@ -22,11 +22,11 @@ shinyUI(fluidPage(
                
     ),
     
-    tabPanel("Carbon Emmissions in the US",
+    tabPanel("Carbon Emissions in the US",
              tags$header(
                tags$div(
                  id = "header",
-                 h1("Carbon Emmissions Over Time in the US")
+                 h1("Carbon Emissions Over Time in the US")
                )
              ),
              
