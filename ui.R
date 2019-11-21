@@ -23,36 +23,60 @@ shinyUI(fluidPage(
     ),
     
     tabPanel("Carbon Emmissions in the US",
-             tags$header(
-               tags$div(
-                 id = "header",
-                 h1("Carbon Emmissions Over Time in the US")
-               )
-             ),
+      tags$header(
+        tags$div(
+          id = "header",
+            h1("Carbon Emmissions Over Time in the US")
+        )
+      ),
              
-             sidebarLayout(
-               sidebarPanel(
-                 sliderInput(inputId = "year", "Year", 1800, 2014, value = c(1900, 2000)),
-                 selectInput(inputId = "type", "Fuel Type", "Type", choices = c('Total' = 'Total', 'Solid Fuel' = 'Solid.Fuel', 'Liquid Fuel' = 'Liquid.Fuel','Gas Fuel' = 'Gas.Fuel')
-                 )
-               ),
+      sidebarLayout(
+        sidebarPanel(
+          sliderInput(inputId = "year", "Year", 1800, 2014, value = c(1900, 2000)),
+          selectInput(inputId = "type", "Fuel Type", "Type", choices = c('Total' = 'Total', 'Solid Fuel' = 'Solid.Fuel', 'Liquid Fuel' = 'Liquid.Fuel','Gas Fuel' = 'Gas.Fuel')
+          )
+        ),
                
-               mainPanel(
-                 plotOutput(outputId = "plot")   
-               )
-             )
+        mainPanel(
+          plotOutput(outputId = "plot")   
+        )
+      )
     ),
     
     tabPanel("Viability", 
-             
+      sidebarLayout(
+        sidebarPanel(
+          "Text and interactive elements will go here"
+        ),
+        
+        mainPanel(
+          "Graph will go here"
+        )
+      )    
     ),
     
     tabPanel("Benefits", 
-             
+      sidebarLayout(
+        sidebarPanel(
+          "Text and interactive elements will go here"
+        ),
+               
+        mainPanel(
+          "Graph will go here"
+        )
+      )
     ),
     
-    tabPanel("Better stuff", 
-             
+    tabPanel("Improvements", 
+      sidebarLayout(
+        sidebarPanel(
+          "Text and interactive elements will go here"
+        ),
+               
+        mainPanel(
+          "Graph will go here"
+        )
+      )             
     ),
     
 
