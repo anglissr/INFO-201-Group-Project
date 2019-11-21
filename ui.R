@@ -46,11 +46,11 @@ shinyUI(fluidPage(
     tabPanel("Viability", 
       sidebarLayout(
         sidebarPanel(
-          p("Text and interactive elements will go here")
+          tags$p("Text and interactive elements will go here")
         ),
         
         mainPanel(
-          p("Graph will go here")
+          tags$p("Graph will go here")
         )
       )    
     ),
@@ -58,11 +58,11 @@ shinyUI(fluidPage(
     tabPanel("Benefits", 
       sidebarLayout(
         sidebarPanel(
-          p("Text and interactive elements will go here")
+          tags$p("Text and interactive elements will go here")
         ),
                
         mainPanel(
-          p("Graph will go here")
+          tags$p("Graph will go here")
         )
       )
     ),
@@ -70,11 +70,11 @@ shinyUI(fluidPage(
     tabPanel("Improvements", 
       sidebarLayout(
         sidebarPanel(
-          p("Text and interactive elements will go here")
+          tags$p("Text and interactive elements will go here")
         ),
                
         mainPanel(
-          p("Graph will go here")
+          tags$p("Graph will go here")
         )
       )             
     ),
