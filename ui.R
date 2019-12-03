@@ -3,6 +3,7 @@
 library(shiny)
 
 shinyUI(fluidPage(
+  
   tags$head(
     tags$title("Code: Green"),
     tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.css"),
@@ -20,7 +21,22 @@ shinyUI(fluidPage(
 
     
     tabPanel("Home", 
-               
+       tags$div(
+         id = "affiliation",
+         tags$p("INFO-201A: Technical Foundations of Informatics"),
+         tags$p("The Information School"),
+         tags$p("University of Washington"),
+         tags$p("Autumn 2019")
+       ),
+       tags$div(
+         id = "content",
+         tags$h2("Overview"),
+         tags$p(""),
+         tags$h2("Audience"),
+         tags$p(""),
+         tags$h2("Page Description"),
+         tags$p(""),
+       )
     ),
     
     tabPanel("Carbon Emissions in the US",
