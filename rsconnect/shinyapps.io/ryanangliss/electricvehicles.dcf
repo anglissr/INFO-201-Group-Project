@@ -5,8 +5,8 @@ account: ryanangliss
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 1489661
-bundleId: 2605551
+bundleId: 2605628
 url: https://ryanangliss.shinyapps.io/electricvehicles/
-when: 1574295263.65362
+when: 1574297286.33334
 asMultiple: FALSE
 asStatic: FALSE

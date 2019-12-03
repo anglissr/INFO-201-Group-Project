@@ -6,6 +6,7 @@ shinyUI(fluidPage(
   tags$head(
     tags$title("Code: Green"),
     tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.css"),
+   #tags$style(type="text/css", "body {padding-top: 70px;}"),
     tags$meta(charset = "utf-8"),
     tags$meta(name = "viewport", content = "width=device-width, initial-scale=1, shrink-to-fit=no")
   ),
@@ -43,14 +44,20 @@ shinyUI(fluidPage(
       )
     ),
     
-    tabPanel("Viability", 
+    tabPanel("Viability",
+             tags$header(
+               tags$div(
+                 id = "header",
+                 h1("Viability of Electric Vehicles")
+               )
+             ),
       sidebarLayout(
         sidebarPanel(
-          tags$p("Text and interactive elements will go here")
+          selectInput(inputId = "selection", "selection", choices = c("Vehicles Registered (thousands)" = "V2", "Vehicle KM traveled (millions)" = "V3", "Fuel Consumed (million liters)" = "V4", "Average fuel consumed per vehicle (liters)" = "V7"))
         ),
         
         mainPanel(
-          tags$p("Graph will go here")
+          plotOutput(outputId = "plot2")   
         )
       )    
     ),
