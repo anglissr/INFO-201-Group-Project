@@ -11,7 +11,7 @@ emissions_us <- emissions_by_nation %>%
 vehicles_by_year <- t(read.csv("data/vehicles_by_year.csv", stringsAsFactors = FALSE))
 Year <- rownames(vehicles_by_year)
 rownames(vehicles_by_year) <- NULL
-vehicles_by_year <- as_data_frame(cbind(Year,d))
+vehicles_by_year <- as_data_frame(cbind(Year,vehicles_by_year))
 vehicles_by_year$Year <- gsub('X', '', vehicles_by_year$Year)
 vehicles_by_year <- filter(vehicles_by_year, Year >= 1990)
 
