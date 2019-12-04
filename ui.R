@@ -51,7 +51,7 @@ shinyUI(fluidPage(
                  h1("Viability of Electric Vehicles")
                )
              ),
-      sidebarLayout(
+      fluidRow(
         sidebarPanel(
           selectInput(inputId = "selection", "selection", choices = c("Vehicles Registered (thousands)" = "V2", "Vehicle KM traveled (millions)" = "V3", "Fuel Consumed (million liters)" = "V4", "Average fuel consumed per vehicle (liters)" = "V7"))
         ),
@@ -59,7 +59,16 @@ shinyUI(fluidPage(
         mainPanel(
           plotOutput(outputId = "plot2")   
         )
-      )    
+      ),
+      fluidRow(
+        sidebarPanel(
+          selectInput(inputId = "selection2", "selection", choices = c("Hybrid Electric" = "V2", "Plug-in Hybrid-electric" = "V3", "	Electric" = "V4"))
+        ),
+        
+        mainPanel(
+          plotOutput(outputId = "plot3")   
+        )
+      )
     ),
     
     tabPanel("Benefits", 
