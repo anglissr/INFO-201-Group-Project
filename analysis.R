@@ -28,6 +28,10 @@ rownames(vehicles_by_year) <- NULL
 vehicles_by_year <- as_data_frame(cbind(Year,vehicles_by_year))
 vehicles_by_year$Year <- gsub('X', '', vehicles_by_year$Year)
 vehicles_by_year <- filter(vehicles_by_year, Year >= 1999)
+vehicles_by_year$V2 <- as.numeric(gsub(",", "", vehicles_by_year$V2))
+vehicles_by_year$V3 <- as.numeric(gsub(",", "", vehicles_by_year$V3))
+vehicles_by_year$V4 <- as.numeric(gsub(",", "", vehicles_by_year$V4))
+vehicles_by_year$V7 <- as.numeric(gsub(",", "", vehicles_by_year$V7))
 
 vehicles_by_year_plot <- function(selection) {
   vehicles_year_plot <- ggplot(data = vehicles_by_year) +
@@ -36,7 +40,8 @@ vehicles_by_year_plot <- function(selection) {
          subtitle = "(1999 - 2017)",
          caption = "Data from the Bureau of Transportation Statistics (US DOT)",
          y = "") +
-    theme_classic()
+    theme_classic() +
+    scale_y_continuous(labels=function(n){format(n, scientific = FALSE)}, breaks = waiver())
   return(vehicles_year_plot)
 }
 
@@ -57,7 +62,7 @@ ev_sales_type_plot <- function(selection2) {
          caption = "Data from the Bureau of Transportation Statistics (US DOT)",
          y = "") +
     theme_classic() +
-    scale_y_continuous(labels=function(n){format(n, scientific = FALSE)})
+    scale_y_continuous(labels=function(n){format(n, scientific = FALSE)}, limits = c(0, 500000), breaks = seq(0, 500000, by = 50000))
     
   return(sales_type_plot)
 }
