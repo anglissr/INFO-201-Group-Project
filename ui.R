@@ -113,7 +113,7 @@ shinyUI(fluidPage(
              ),
              fluidRow(
                sidebarPanel(
-                 selectInput(inputId = "selection", "selection",
+                 selectInput(inputId = "selection", "Select",
                              choices = c("Vehicles Registered (thousands)" = "V2",
                                          "Vehicle KM traveled (millions)" = "V3",
                                          "Fuel Consumed (million liters)" = "V4",
@@ -127,7 +127,7 @@ shinyUI(fluidPage(
              ),
              fluidRow(
                sidebarPanel(
-                 selectInput(inputId = "selection2", "selection", choices = c("Hybrid Electric" = "V2", "Plug-in Hybrid-electric" = "V3", "	Electric" = "V4"))
+                 selectInput(inputId = "selection2", "Select", choices = c("Hybrid Electric" = "V2", "Plug-in Hybrid-electric" = "V3", "	Electric" = "V4"))
                ),
                
                mainPanel(
@@ -154,7 +154,10 @@ shinyUI(fluidPage(
           id = "header",
           h1("Improving Electric Vehicles")
         )
-      ),       
+      ),  
+      fluidRow (
+        p("one of the")  
+      ),
       fluidRow (
         leafletOutput("map1")
       )

@@ -70,7 +70,7 @@ https://www.w3schools.com/howto/howto_css_team.asp */
  /* Three columns side by side */
 .column {
   float: left;
-  width: 33.3%;
+  width: 33%;
   margin-bottom: 16px;
   padding: 0 8px;
 }

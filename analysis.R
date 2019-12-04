@@ -2,6 +2,7 @@ library(dplyr)
 library(ggplot2)
 library(leaflet)
 library(stringr)
+library(reshape2)
 
 emissions_by_nation <- read.csv("data/co2_emission_by_nation.csv", stringsAsFactors = FALSE)
 sales_by_year_original <- read.csv("data/EV_sales_by_year.csv", stringsAsFactors = FALSE)
@@ -30,9 +31,12 @@ vehicles_by_year <- filter(vehicles_by_year, Year >= 1999)
 
 vehicles_by_year_plot <- function(selection) {
   vehicles_year_plot <- ggplot(data = vehicles_by_year) +
-    geom_col(mapping = aes(x = Year, y = !!as.name(selection))) +
-    ylab("") +
-    ggtitle("Vehicle Stats by Year in the US")
+    geom_col(mapping = aes(x = Year, y = !!as.name(selection)), fill = "#336699") +
+    labs(title = "Vehicle Stats by Year in the US",
+         subtitle = "(1999 - 2017)",
+         caption = "Data from the Bureau of Transportation Statistics (US DOT)",
+         y = "") +
+    theme_classic()
   return(vehicles_year_plot)
 }
 
@@ -47,9 +51,14 @@ electric_vehicle_sales_type$V4 <- as.numeric(as.character(electric_vehicle_sales
 
 ev_sales_type_plot <- function(selection2) {
   sales_type_plot <- ggplot(data = electric_vehicle_sales_type) +
-    geom_col(mapping = aes(x = Year, y = !!as.name(selection2))) +
-    ylab("") +
+    geom_col(mapping = aes(x = Year, y = !!as.name(selection2)), fill = "#33cc33") +
+    labs(title = "Electric Vehicle Sales by Type of EV in the US",
+         subtitle = "(1999 - 2017)",
+         caption = "Data from the Bureau of Transportation Statistics (US DOT)",
+         y = "") +
+    theme_classic() +
     scale_y_continuous(labels=function(n){format(n, scientific = FALSE)})
+    
   return(sales_type_plot)
 }
 
