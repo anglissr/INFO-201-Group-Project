@@ -20,6 +20,6 @@ shinyServer(function(input, output) {
   )
   
   output$stacked_emissions <- renderPlot(
-    epa_bar_chart
+    stacked_emissions_chart(input$stacked_select)
   )  
 })

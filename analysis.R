@@ -3,6 +3,7 @@ library(ggplot2)
 library(leaflet)
 library(stringr)
 library(reshape2)
+library(tidyr)
 
 emissions_by_nation <- read.csv("data/co2_emission_by_nation.csv", stringsAsFactors = FALSE)
 sales_by_year_original <- read.csv("data/EV_sales_by_year.csv", stringsAsFactors = FALSE)
@@ -108,6 +109,9 @@ epa_data[-1] <- lapply(epa_data[-1], as.numeric)
 epa_data <- epa_data %>%
   group_by(`Gas/Source`) %>%
   summarize_each(sum)
+epa_data[63,1] <- "Wood Biomass, Ethanol, and Biodiesel Consumption"
+epa_data[26,1] <- "International Bunker Fuels"
+epa_data[55,1] <- "	Substitution of Ozone Depleting Substances"
 epa_chart_data <- epa_data %>%
   gather(key = "Year", value = "emissions", -`Gas/Source`)
 epa_chart_data <- epa_chart_data %>%
@@ -119,7 +123,14 @@ epa_chart_data <- epa_chart_data %>%
          !`Gas/Source` == "N2Oc",
          !`Gas/Source` == "Fossil Fuel Combustion")
 colnames(epa_chart_data) <- c("Source", "Year", "Emissions (Million Metric Tonnes)")
-epa_bar_chart <- ggplot(epa_chart_data) +
-  geom_col(
-    mapping = aes(x = `Year`, y = `Emissions (Million Metric Tonnes)`, fill = `Source`)
-  )
+stacked_input <- unique(epa_chart_data$Source)
+stacked_emissions_chart <- function(sources) {
+  varied_data <- epa_chart_data
+  varied_data <- varied_data %>%
+    filter(`Source` %in% sources)
+  epa_bar_chart <- ggplot(varied_data) +
+    geom_col(
+      mapping = aes(x = `Year`, y = `Emissions (Million Metric Tonnes)`, fill = `Source`)
+    )
+  return(epa_bar_chart)
+}

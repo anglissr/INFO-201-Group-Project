@@ -2,6 +2,7 @@
 
 library(shiny)
 library(leaflet)
+source("analysis.R")
 
 shinyUI(fluidPage(
   tags$head(
@@ -199,7 +200,7 @@ shinyUI(fluidPage(
                  are valid questions and lead to valid critiques of electric vehicles. While many cities are implementing electric car charging
                  stations, the city of Austin Texas has a dataset from their 'Plug-In EVerywhere' charging station network. Below is a map of all of
                  car charging stations accross Austin, as well as their address and the name of the orginization that owns and manages them.")
-        ),
+        )
       ),
       fluidRow(
         leafletOutput("map1")
@@ -207,14 +208,32 @@ shinyUI(fluidPage(
     ),
     
     tabPanel(
-      "Other Major Emission Sources",
-      sidebarLayout(
-        sidebarPanel(
-          tags$p("Text and interactive elements will go here")
-        ),
-        
-        mainPanel(
-          plotOutput(outputId = "stacked_emissions"))
+      "Other Sources",
+      tags$header(
+        tags$div(
+          id = "header",
+          h1("Other Major Emission Sources")
+        )
+      ),
+      fluidRow(
+        fluidRow(
+          tags$h3("Transportation is Not Everything"),
+          tags$p("While making the switch to electric cars would make a dent in the largest contributor to emissions in 2017,
+                 electricity production is the second biggest contributor to emissions,", 
+                 tags$a("according to the EPA.", href="https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks-1990-2017"),
+                 "The electric power sector used to make up the largest portion of greenhouse gas emissions in the US, peaking in 2007.
+                 Over the last decade, emissions from electricity production has trended downwards and will continue in that direction
+                 as the US adopts more alternative energy sources. Meanwhile, emissions from transportation have trended upwards over the same period of time.
+                 Making the switch to electric cars is one of the first major steps in starting a similar downward trend
+                 in the emissions from transportation. Below is a graph that breaks down the total greenhouse gas emissions by industry from 1990
+                 to 2017.")
+        )
+      ),
+      fluidRow(
+        checkboxGroupInput(inputId = "stacked_select", "Select", stacked_input, selected = c("Transportation", "Electric Power Sector"))
+      ),
+      fluidRow(
+        plotOutput(outputId = "stacked_emissions")
       )
     ),
 
