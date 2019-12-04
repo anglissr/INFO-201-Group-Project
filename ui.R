@@ -7,7 +7,7 @@ shinyUI(fluidPage(
   tags$head(
     tags$title("Code: Green"),
     tags$link(rel = "stylesheet", type = "text/css", href = "bootstrap.css"),
-    # tags$style(type="text/css", "body {padding-top: 70px;}"),
+    #tags$style(type="text/css", "body {padding-bottom: 70px;}"),
     tags$meta(charset = "utf-8"),
     tags$meta(name = "viewport", content = "width=device-width,
               initial-scale=1, shrink-to-fit=no")
@@ -89,7 +89,18 @@ shinyUI(fluidPage(
         )
       ),
 
-      sidebarLayout(
+      fluidRow(
+        tags$h3("Emissions: A Breif Overview"),
+        tags$p("In order to tackle the question of whether or not electric vehicles are a viable option
+               to decrease carbon emissions, an understanding of the history or United States's emissions is needed.
+               Thanks to", tags$a(href = "https://cdiac.ess-dive.lbl.gov/", "Data from the Carbon Dioxide Information Analysis Center (CDIAC)"),
+               ", we were able to obtain a dataset of the US's CO2 emissions from fossil-fuels annually since 1800. The data set consists of carbon 
+               emissions from liquid fuel consumption, gas fuel consumtion, solid fuel consumption, as well as some more 
+               insignificant sources of CO2 emissions. In the graph below, you can select a range of year and type of fuel to see the 
+               amount of C02 in millions metric tons. Though all of this data is useful, we are most concerned with the CO2 
+               emissions caused by Liquid Fuel (aka gasoline).")
+      ),
+      fluidRow(
         sidebarPanel(
           sliderInput(
             inputId = "year", "Year", 1800, 2014,
@@ -130,6 +141,7 @@ shinyUI(fluidPage(
               select between seeing registered vehicles or other travel data of light duty vehicles, buses, trucks and motorcycles in the US. The 
               second plot can show the number of EV sales during that same time period.")
       ),
+      hr(),
       fluidRow(
         tags$h3("Plot 1"),
         sidebarPanel(
@@ -158,6 +170,16 @@ shinyUI(fluidPage(
         mainPanel(
           plotOutput(outputId = "plot3")
         )
+      ),
+      hr(),
+      fluidRow(
+        tags$h3("Conclusions"),
+        tags$p("A whopping 272,000,000 vehicles were registerd in the US in 2017. However, only 565,930 electric vehicles were purchased the same year 
+               making up only 0.2% of vehicles registered during the year. Even if we look at 2013, which saw a small spike in EV sales, only
+               592,229 cars were sold, still on 0.21% of vehicles registered. Though that number is very small, there is still a massive
+               trend in electric vehicle purchases, evident by the steep incline on the graph. With this in mind, it is clear that electric vehicles
+               have a very long way to go before they are able to be deemed 'mainstream', but this growth, if assumed to continue, is a good sign
+               for the future of EV's in the US")
       )
     ),
 
@@ -181,7 +203,14 @@ shinyUI(fluidPage(
         )
       ),
       fluidRow(
-        p("one of the")
+        fluidRow(
+          tags$h3("What is There to Improve?"),
+          tags$p("If you ask a random person what their biggest concern is for electric vehicles, many of their answers revolve around one
+                 feature of these types of cars; charging. Where are charging stations near me? How far can I get before my car dies? All these
+                 are valid questions and lead to valid critiques of electric vehicles. While many cities are implementing electric car charging
+                 stations, the city of Austin Texas has a dataset from their 'Plug-In EVerywhere' charging station network. Below is a map of all of
+                 car charging stations accross Austin, as well as their address and the name of the orginization that owns and manages them.")
+        ),
       ),
       fluidRow(
         leafletOutput("map1")
@@ -209,9 +238,7 @@ shinyUI(fluidPage(
             tags$div(
               class = "container",
               tags$h3("Davis Kurniawan"),
-              tags$p(tags$button(
-                class = "button",
-                tags$a(
+              tags$p(tags$button(class = "button", tags$a(
                   href = "https://github.com/davisk83",
                   "Github"
                 )

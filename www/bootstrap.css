@@ -8,25 +8,8 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-
-a:link {
-  color: white;
-  text-decoration: none;
-}
-
-a:visited {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  color: white;
-  text-decoration: none;
-}
-
-a:active {
-  color: white;
-  text-decoration: none;
+h3 {  
+  text-shadow: -2px 2px 4px #bfbfbf;
 }
 
 #header {

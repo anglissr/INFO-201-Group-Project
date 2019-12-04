@@ -17,8 +17,13 @@ emission_plot <- function(year, type) {
   emissions_us <- emissions_by_nation %>%
     filter(Country == "UNITED STATES OF AMERICA") %>%
     filter(Year > year[1] & Year < year[2])
-  total_emissions_year <- ggplot(emissions_us) +
-    geom_col(mapping = aes(x = Year, y = !!as.name(type)))
+  total_emissions_year <- ggplot(emissions_us, aes(x = Year, y = !!as.name(type), group=1)) +
+    geom_line()+
+    labs(title = "CO2 Emissions in the US",
+         subtitle = "(1800 - 2014)",
+         caption = "Data from the Carbon Dioxide Information Analysis Center") +
+    theme_minimal() + 
+    scale_y_continuous(labels=function(n){format(n, scientific = FALSE)}, limits = c(0, 1600000), breaks = seq(0, 1600000, by = 100000))
   return(total_emissions_year)
 }
 
@@ -78,7 +83,7 @@ get_lon <- function(string) {
 ev_charging$lat <- lapply(ev_charging$New.Georeferenced.Column, get_lat)
 ev_charging$lon <- lapply(ev_charging$New.Georeferenced.Column, get_lon)
 locations <- data.frame(
-  label = ev_charging$Address..1,
+  label = paste(ev_charging$Address..1, "<br>", ev_charging$Org.Name, sep = ""),
   latitude = unlist(ev_charging[14]),
   longitude = unlist(ev_charging[15])
 )
