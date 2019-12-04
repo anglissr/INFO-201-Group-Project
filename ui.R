@@ -73,9 +73,9 @@ shinyUI(fluidPage(
                 can shows the biggest contribution from the different type
                 of fuel from the interactive graph. The viability page shows
                 the viability of electric vehicles and many different statistic
-                of vehicles. The benefits tab shows the benefits of electric
-                cars, different company impacts, and the decrease of carbon
-                emissions. The improvement tab shows how electric cars can 
+                of vehicles. The other sources tab shows the other major
+                emission sources besides vehicles displayed in the interactive
+                graph. The improvement tab shows how electric cars can
                 be improved. Lastly the team tab shows information about us,
                 the authors.")
       )
@@ -91,14 +91,22 @@ shinyUI(fluidPage(
       ),
 
       fluidRow(
-        tags$h3("Emissions: A Breif Overview"),
-        tags$p("In order to tackle the question of whether or not electric vehicles are a viable option
-               to decrease carbon emissions, an understanding of the history or United States's emissions is needed.
-               Thanks to", tags$a(href = "https://cdiac.ess-dive.lbl.gov/", "Data from the Carbon Dioxide Information Analysis Center (CDIAC)"),
-               ", we were able to obtain a dataset of the US's CO2 emissions from fossil-fuels annually since 1800. The data set consists of carbon 
-               emissions from liquid fuel consumption, gas fuel consumtion, solid fuel consumption, as well as some more 
-               insignificant sources of CO2 emissions. In the graph below, you can select a range of year and type of fuel to see the 
-               amount of C02 in millions metric tons. Though all of this data is useful, we are most concerned with the CO2 
+        tags$h3("Emissions: A Brief Overview"),
+        tags$p("In order to tackle the question of whether or not electric
+                vehicles are a viable option to decrease carbon emissions,
+                an understanding of the history or United States's emissions
+                is needed. Thanks to",
+               tags$a(href = "https://cdiac.ess-dive.lbl.gov/",
+                      "Data from the Carbon Dioxide Information
+                      Analysis Center (CDIAC)"),
+               ", we were able to obtain a dataset of the US's CO2 emissions
+               from fossil-fuels annually since 1800. The data set consists
+               of carbon emissions from liquid fuel consumption, gas fuel
+               consumtion, solid fuel consumption, as well as some more
+               insignificant sources of CO2 emissions. In the graph below,
+               you can select a range of year and type of fuel to see the
+               amount of C02 in millions metric tons. Though all of this
+               data is useful, we are most concerned with the CO2
                emissions caused by Liquid Fuel (aka gasoline).")
       ),
       fluidRow(
@@ -133,14 +141,22 @@ shinyUI(fluidPage(
       ),
       fluidRow(
         tags$h3("Electric Vehicles: Capable of Success?"),
-        tags$p("A large focus of this project involves looking the the current viability of Electric Vehicles, as well as looking 
-              into the past and ahead to the future in order to predict the effectiveness of EVs. In looking at whether EVs were capable
-              of success, we first looked to the United States D.O.T. statistics on vehicles as a whole, so we could get an idea
-              of the trend lines and see how EVs could impact the data. We then turned to data specifically about the number of EVs purchased
-              over a certain time, so we could set up a comparison and gather insight as to the popularity of EVs. Below are the two plots 
-              displaying this data. They both have the same x-axis range so that comparisons are able to be made. In the first plot, you can 
-              select between seeing registered vehicles or other travel data of light duty vehicles, buses, trucks and motorcycles in the US. The 
-              second plot can show the number of EV sales during that same time period.")
+        tags$p("A large focus of this project involves looking the the
+                current viability of Electric Vehicles, as well as looking
+                into the past and ahead to the future in order to predict
+                the effectiveness of EVs. In looking at whether EVs were
+                capable of success, we first looked to the United States
+                D.O.T. statistics on vehicles as a whole, so we could get an
+                idea of the trend lines and see how EVs could impact the data.
+                We then turned to data specifically about the number of EVs
+                purchased over a certain time, so we could set up a comparison
+                and gather insight as to the popularity of EVs. Below are the
+                two plots displaying this data. They both have the same x-axis
+                range so that comparisons are able to be made. In the first
+                plot, you can select between seeing registered vehicles or
+                other travel data of light duty vehicles, buses, trucks and
+                motorcycles in the US. The second plot can show the number
+                of EV sales during that same time period.")
       ),
       hr(),
       fluidRow(
@@ -165,7 +181,10 @@ shinyUI(fluidPage(
       fluidRow(
         tags$h3("Plot 2"),
         sidebarPanel(
-          selectInput(inputId = "selection2", "Select", choices = c("Hybrid Electric" = "V2", "Plug-in Hybrid-electric" = "V3", "	Electric" = "V4"))
+          selectInput(inputId = "selection2", "Select",
+                      choices = c("Hybrid Electric" = "V2",
+                                  "Plug-in Hybrid-electric" = "V3",
+                                  "	Electric" = "V4"))
         ),
 
         mainPanel(
@@ -175,12 +194,18 @@ shinyUI(fluidPage(
       hr(),
       fluidRow(
         tags$h3("Conclusions"),
-        tags$p("A whopping 272,000,000 vehicles were registerd in the US in 2017. However, only 565,930 electric vehicles were purchased the same year 
-               making up only 0.2% of vehicles registered during the year. Even if we look at 2013, which saw a small spike in EV sales, only
-               592,229 cars were sold, still on 0.21% of vehicles registered. Though that number is very small, there is still a massive
-               trend in electric vehicle purchases, evident by the steep incline on the graph. With this in mind, it is clear that electric vehicles
-               have a very long way to go before they are able to be deemed 'mainstream', but this growth, if assumed to continue, is a good sign
-               for the future of EV's in the US")
+        tags$p("A whopping 272,000,000 vehicles were registerd in the US in
+                2017. However, only 565,930 electric vehicles were purchased
+                the same year making up only 0.2% of vehicles registered during
+                the year. Even if we look at 2013, which saw a small spike in
+                EV sales, only 592,229 cars were sold, still on 0.21% of
+                vehicles registered. Though that number is very small, there
+                is still a massive trend in electric vehicle purchases, evident
+                by the steep incline on the graph. With this in mind, it is
+                clear that electric vehicles have a very long way to go before
+                they are able to be deemed 'mainstream', but this growth, if
+                assumed to continue, is a good sign for the future of EV's in
+                the US")
       )
     ),
 
@@ -195,18 +220,25 @@ shinyUI(fluidPage(
       fluidRow(
         fluidRow(
           tags$h3("What is There to Improve?"),
-          tags$p("If you ask a random person what their biggest concern is for electric vehicles, many of their answers revolve around one
-                 feature of these types of cars; charging. Where are charging stations near me? How far can I get before my car dies? All these
-                 are valid questions and lead to valid critiques of electric vehicles. While many cities are implementing electric car charging
-                 stations, the city of Austin Texas has a dataset from their 'Plug-In EVerywhere' charging station network. Below is a map of all of
-                 car charging stations accross Austin, as well as their address and the name of the orginization that owns and manages them.")
+          tags$p("If you ask a random person what their biggest concern is
+                  for electric vehicles, many of their answers revolve around
+                  one feature of these types of cars; charging. Where are
+                  charging stations near me? How far can I get before my car
+                  dies? All these are valid questions and lead to valid
+                  critiques of electric vehicles. While many cities are
+                  implementing electric car charging stations, the city
+                  of Austin Texas has a dataset from their 'Plug-In EVerywhere'
+                  charging station network. Below is a map of all of car
+                  charging stations accross Austin, as well as their address
+                  and the name of the orginization that owns and manages
+                  them.")
         )
       ),
       fluidRow(
         leafletOutput("map1")
       )
     ),
-    
+
     tabPanel(
       "Other Sources",
       tags$header(
@@ -218,19 +250,29 @@ shinyUI(fluidPage(
       fluidRow(
         fluidRow(
           tags$h3("Transportation is Not Everything"),
-          tags$p("While making the switch to electric cars would make a dent in the largest contributor to emissions in 2017,
-                 electricity production is the second biggest contributor to emissions,", 
-                 tags$a("according to the EPA.", href="https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks-1990-2017"),
-                 "The electric power sector used to make up the largest portion of greenhouse gas emissions in the US, peaking in 2007.
-                 Over the last decade, emissions from electricity production has trended downwards and will continue in that direction
-                 as the US adopts more alternative energy sources. Meanwhile, emissions from transportation have trended upwards over the same period of time.
-                 Making the switch to electric cars is one of the first major steps in starting a similar downward trend
-                 in the emissions from transportation. Below is a graph that breaks down the total greenhouse gas emissions by industry from 1990
-                 to 2017.")
+          tags$p("While making the switch to electric cars would make a dent in
+                  the largest contributor to emissions in 2017, electricity
+                  production is the second biggest contributor to emissions,",
+                  tags$a("according to the EPA.",
+                         href = "https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks-1990-2017"),
+                 "The electric power sector used to make up the largest portion
+                 of greenhouse gas emissions in the US, peaking in 2007. Over
+                 the last decade, emissions from electricity production has
+                 trended downwards and will continue in that direction as the
+                 US adopts more alternative energy sources. Meanwhile,
+                 emissions from transportation have trended upwards over
+                 the same period of time. Making the switch to electric cars
+                 is one of the first major steps in starting a similar downward
+                 trend in the emissions from transportation. Below is a graph
+                 that breaks down the total greenhouse gas emissions by
+                 industry from 1990 to 2017.")
         )
       ),
       fluidRow(
-        checkboxGroupInput(inputId = "stacked_select", "Select", stacked_input, selected = c("Transportation", "Electric Power Sector"))
+        checkboxGroupInput(inputId = "stacked_select",
+                           "Select", stacked_input,
+                           selected = c("Transportation",
+                                        "Electric Power Sector"))
       ),
       fluidRow(
         plotOutput(outputId = "stacked_emissions")
