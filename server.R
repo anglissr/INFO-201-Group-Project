@@ -18,5 +18,8 @@ shinyServer(function(input, output) {
   output$map1 <- renderLeaflet(
     ev_charging_plot()
   )
-    
+  
+  output$stacked_emissions <- renderPlot(
+    epa_bar_chart
+  )  
 })

@@ -97,3 +97,29 @@ ev_charging_plot <- function(df = locations) {
       popup = ~label
     )
 }
+
+#Stacked Bar Chart
+epa_data <- read.csv("data/EPA_all_greenhouse.csv", stringsAsFactors = FALSE)
+epa_data <- epa_data %>%
+  select(-"Table.2.1...Recent.Trends.in.U.S..Greenhouse.Gas.Emissions.and.Sinks..MMT.CO2.Eq..")
+colnames(epa_data) <- epa_data[2,]
+epa_data <- epa_data[-c(1,2,95:105,34,54,72,57,56,35,74,73,55,84,80,89,71,90),]
+epa_data[-1] <- lapply(epa_data[-1], as.numeric)
+epa_data <- epa_data %>%
+  group_by(`Gas/Source`) %>%
+  summarize_each(sum)
+epa_chart_data <- epa_data %>%
+  gather(key = "Year", value = "emissions", -`Gas/Source`)
+epa_chart_data <- epa_chart_data %>%
+  filter(!is.na(emissions), 
+         emissions >= 100,
+         !`Gas/Source` == "Total Emissions",
+         !`Gas/Source` == "CH4c",
+         !`Gas/Source` == "CO2",
+         !`Gas/Source` == "N2Oc",
+         !`Gas/Source` == "Fossil Fuel Combustion")
+colnames(epa_chart_data) <- c("Source", "Year", "Emissions (Million Metric Tonnes)")
+epa_bar_chart <- ggplot(epa_chart_data) +
+  geom_col(
+    mapping = aes(x = `Year`, y = `Emissions (Million Metric Tonnes)`, fill = `Source`)
+  )

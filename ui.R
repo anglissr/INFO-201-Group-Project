@@ -76,7 +76,7 @@ shinyUI(fluidPage(
                 cars, different company impacts, and the decrease of carbon
                 emissions. The improvement tab shows how electric cars can 
                 be improved. Lastly the team tab shows information about us,
-                the authors."),
+                the authors.")
       )
     ),
 
@@ -184,17 +184,6 @@ shinyUI(fluidPage(
     ),
 
     tabPanel(
-      "Benefits",
-      sidebarLayout(
-        sidebarPanel(
-          tags$p("Text and interactive elements will go here")
-        ),
-
-        mainPanel()
-      )
-    ),
-
-    tabPanel(
       "Improvements",
       tags$header(
         tags$div(
@@ -214,6 +203,18 @@ shinyUI(fluidPage(
       ),
       fluidRow(
         leafletOutput("map1")
+      )
+    ),
+    
+    tabPanel(
+      "Other Major Emission Sources",
+      sidebarLayout(
+        sidebarPanel(
+          tags$p("Text and interactive elements will go here")
+        ),
+        
+        mainPanel(
+          plotOutput(outputId = "stacked_emissions"))
       )
     ),
 
