@@ -30,7 +30,7 @@ shinyUI(fluidPage(
       ),
       tags$div(
         id = "content",
-        tags$h2("Overview"),
+        tags$h3("Overview"),
         tags$p("The problem situation is how vehicle emissions are
                 impacting the climate in the US as well as the alternatives
                 to emission producing vehicles; it has to do with the viability
@@ -58,7 +58,7 @@ shinyUI(fluidPage(
                 greenhouse emissions, the conclusions we made can be expanded
                 to relate to other topics in the study of environmental
                 impacts."),
-        tags$h2("Audience"),
+        tags$h3("Audience"),
         tags$p("The stakeholders in this situation are people in
                 the US who are looking into buying vehicles currently
                 or in the near future, however, much of the data we
@@ -66,7 +66,7 @@ shinyUI(fluidPage(
                 our environment more and more, and with a growing debate
                 around climate change, this topic is helpful in explaining
                 one part of the problem."),
-        tags$h2("Page Description"),
+        tags$h3("Page Description"),
         tags$p("The carbon emissions page shows data visualization of the
                 different type of carbon emissions in the US overtime. It
                 can shows the biggest contribution from the different type
