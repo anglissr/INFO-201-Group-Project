@@ -10,5 +10,8 @@ shinyServer(function(input, output) {
     vehicles_by_year_plot(input$selection)
   )
   
+  output$plot3 <- renderPlot(
+    ev_sales_type_plot(input$selection2)
+  )
     
 })
