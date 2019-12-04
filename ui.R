@@ -1,6 +1,7 @@
 # testing shiny
 
 library(shiny)
+library(leaflet)
 
 shinyUI(fluidPage(
   tags$head(
@@ -142,20 +143,20 @@ shinyUI(fluidPage(
         ),
 
         mainPanel(
-          tags$p("Graph will go here")
+          
         )
       )
     ),
 
     tabPanel("Improvements",
-      sidebarLayout(
-        sidebarPanel(
-          tags$p("Text and interactive elements will go here")
-        ),
-
-        mainPanel(
-          tags$p("Graph will go here")
+      tags$header(
+        tags$div(
+          id = "header",
+          h1("Improving Electric Vehicles")
         )
+      ),       
+      fluidRow (
+        leafletOutput("map1")
       )
     ),
 

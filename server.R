@@ -1,4 +1,5 @@
 library(shiny)
+library(leaflet)
 source("analysis.R")
 
 shinyServer(function(input, output) {
@@ -12,6 +13,10 @@ shinyServer(function(input, output) {
   
   output$plot3 <- renderPlot(
     ev_sales_type_plot(input$selection2)
+  )
+  
+  output$map1 <- renderLeaflet(
+    ev_charging_plot()
   )
     
 })
