@@ -7,8 +7,6 @@ library(tidyr)
 
 emissions_by_nation <- read.csv("data/co2_emission_by_nation.csv",
                                 stringsAsFactors = FALSE)
-sales_by_year_original <- read.csv("data/EV_sales_by_year.csv",
-                                   stringsAsFactors = FALSE)
 electric_vehicle_sales_type <- t(read.csv("data/electric_vehicle_sales.csv",
                                           stringsAsFactors = FALSE))
 vehicles_by_year <- t(read.csv("data/vehicles_by_year.csv",
@@ -16,6 +14,7 @@ vehicles_by_year <- t(read.csv("data/vehicles_by_year.csv",
 ev_charging <- read.csv("data/Plug-In_EVerywhere_Charging_Station_Network.csv",
                         stringsAsFactors = FALSE)
 
+#----------Emissions Plot----------
 emissions_us <- emissions_by_nation %>%
   filter(Country == "UNITED STATES OF AMERICA")
 
@@ -35,13 +34,12 @@ emission_plot <- function(year, type) {
                           scale_y_continuous(labels = function(n) {
                             format(n, scientific = FALSE)
                           },
-                          limits = c(0, 1600000),
                           breaks = seq(0, 1600000, by = 100000))
 
   return(total_emissions_year)
 }
 
-
+#----------Vehicles Stats By Year Plot----------
 Year <- rownames(vehicles_by_year)
 rownames(vehicles_by_year) <- NULL
 vehicles_by_year <- as_data_frame(cbind(Year, vehicles_by_year))
@@ -68,6 +66,7 @@ vehicles_by_year_plot <- function(selection) {
   return(vehicles_year_plot)
 }
 
+#----------Electric Vehicles Sales By Year Plot----------
 Year <- rownames(electric_vehicle_sales_type)
 rownames(electric_vehicle_sales_type) <- NULL
 electric_vehicle_sales_type <-
@@ -76,7 +75,7 @@ electric_vehicle_sales_type$Year <-
   gsub("X", "", electric_vehicle_sales_type$Year)
 electric_vehicle_sales_type <-
   electric_vehicle_sales_type[-1, ]
-electric_vehicle_sales_type$V2 <-
+electric_vehicle_sales_type$V2 <- #converting to numeric
   as.numeric(as.character(electric_vehicle_sales_type$V2))
 electric_vehicle_sales_type$V3 <-
   as.numeric(as.character(electric_vehicle_sales_type$V3))
@@ -101,6 +100,7 @@ ev_sales_type_plot <- function(selection2) {
   return(sales_type_plot)
 }
 
+#----------Charging Station Map----------
 get_lat <- function(string) {
   as.numeric(trimws(str_replace(unlist(strsplit(string, ","))[1], "[(]", "")))
 }
@@ -127,7 +127,7 @@ ev_charging_plot <- function(df = locations) {
     )
 }
 
-#Stacked Bar Chart
+#----------Stacked Bar Chart----------
 epa_data <- read.csv("data/EPA_all_greenhouse.csv", stringsAsFactors = FALSE)
 epa_data <- epa_data %>%
   select(-"Table.2.1...Recent.Trends.in.U.S..Greenhouse.Gas.Emissions.and.Sinks..MMT.CO2.Eq..")

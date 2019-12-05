@@ -3,19 +3,19 @@ library(leaflet)
 source("analysis.R")
 
 shinyServer(function(input, output) {
-  output$plot <- renderPlot(
+  output$emission_plot <- renderPlot(
     emission_plot(input$year, input$type)
   )
 
-  output$plot2 <- renderPlot(
+  output$vehicles_by_year_plot <- renderPlot(
     vehicles_by_year_plot(input$selection)
   )
 
-  output$plot3 <- renderPlot(
+  output$ev_sales_type_plot <- renderPlot(
     ev_sales_type_plot(input$selection2)
   )
 
-  output$map1 <- renderLeaflet(
+  output$ev_charging_plot <- renderLeaflet(
     ev_charging_plot()
   )
 
